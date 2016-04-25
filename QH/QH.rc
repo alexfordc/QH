@@ -1,0 +1,250 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(中华人民共和国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\QH.rc2""  // 非 Microsoft Visual C++ 编辑的资源\r\n"
+    "#include ""l.CHS\\afxres.rc""      // 标准组件\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\QH.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 347, 223
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 QH"
+FONT 9, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,20,20
+    LTEXT           "QH，1.0 版",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2016",IDC_STATIC,42,26,114,8
+    DEFPUSHBUTTON   "确定",IDOK,290,202,50,14,WS_GROUP
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,149,76,60,50
+END
+
+IDD_QH_DIALOG DIALOGEX 0, 0, 567, 390
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "QH"
+FONT 9, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "期货行情",IDC_STATIC,200,7,360,118
+    CONTROL         "",IDC_LIST_HANGQING_RECORD,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,200,18,360,89
+    PUSHBUTTON      "添加",IDC_BUTTON_ADD,520,109,40,13
+    EDITTEXT        IDC_EDIT_ADD_QH,468,109,47,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "删除",IDC_BUTTON_DEL,414,109,40,13,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_DELE_QH,364,109,47,13,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    GROUPBOX        "交易",IDC_STATIC,7,130,553,114
+    GROUPBOX        "持仓",IDC_STATIC,7,7,190,118
+    GROUPBOX        "交易记录",IDC_STATIC,197,248,363,113
+    CONTROL         "",IDC_LIST_TRADER_RECORD,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,197,261,363,100
+    CONTROL         "",IDC_LIST_CHICHANG,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,19,190,88
+    LTEXT           "如  果",IDC_STATIC,15,156,19,8
+    COMBOBOX        IDC_COMBO_QH_1,40,155,48,78,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_QH_2,133,155,48,78,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_TIAOJIAN,192,155,29,84,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_TIAOJIAN_VALUE,226,155,40,13,ES_AUTOHSCROLL
+    LTEXT           "期  货",IDC_STATIC,54,143,19,8
+    LTEXT           "期  货",IDC_STATIC,147,143,19,8
+    LTEXT           "条  件",IDC_STATIC,193,143,19,8
+    LTEXT           "运  算",IDC_STATIC,101,143,19,8
+    LTEXT           "数  值",IDC_STATIC,237,143,19,8
+    PUSHBUTTON      "下  单",IDC_BUTTON_GO,402,199,50,41,WS_DISABLED
+    LTEXT           "期  货",IDC_STATIC_QH_1_VALUE,40,189,44,8
+    LTEXT           "期  货",IDC_STATIC_QH_2_VALUE,133,189,51,8
+    CONTROL         "条件满足自动下单",IDC_CHECK_AUTO,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,286,215,71,10
+    LTEXT           "交  易：",IDC_STATIC,326,151,26,8
+    COMBOBOX        IDC_COMBO_QH_TRADER_1,351,150,48,76,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_M_M_1,446,150,21,81,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_NUM_1,508,150,21,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "交  易：",IDC_STATIC,326,177,26,8
+    COMBOBOX        IDC_COMBO_QH_TRADER_2,351,176,48,60,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_M_M_2,446,176,21,70,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_NUM_2,508,176,21,69,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "",IDC_STATIC,275,130,8,114
+    CONTROL         "",IDC_STATIC_FLAG,"Static",SS_BLACKRECT,196,209,76,28
+    LTEXT           "价格",IDC_STATIC_QH_JIAGE_1,409,152,33,8
+    LTEXT           "价格",IDC_STATIC_QH_JIAGE_2,409,178,36,8
+    COMBOBOX        IDC_COMBO_KP1,477,150,21,100,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_KP2,477,176,21,67,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_YUNSUAN,98,155,24,75,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO1_MM,40,171,21,47,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO2_MM,133,171,21,47,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "期  货",IDC_STATIC_QH_RE,226,189,44,8
+    PUSHBUTTON      "全部撤单",IDC_BUTTON_CANCEL,487,198,50,41,WS_DISABLED
+    LTEXT           "静态",IDC_STATIC_MONEY,7,368,553,15
+    PUSHBUTTON      "刷  新 ",IDC_BUTTON_UPDATE,74,110,40,13
+    CONTROL         "",IDC_LIST_CJ,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,261,186,100
+    LTEXT           "对手价",IDC_STATIC_QH_JIAGE_3,407,138,33,8
+    GROUPBOX        "成交记录",IDC_STATIC,7,248,187,113
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080403a8"
+        BEGIN
+            VALUE "CompanyName", "TODO: <公司名>"
+            VALUE "FileDescription", "TODO: <文件说明>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "QH.exe"
+            VALUE "LegalCopyright", "TODO: (C) <公司名>。保留所有权利。"
+            VALUE "OriginalFilename", "QH.exe"
+            VALUE "ProductName", "TODO: <产品名>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 936
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 340
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 216
+    END
+
+    IDD_QH_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 560
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 383
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "关于 QH(&A)..."
+END
+
+#endif    // 中文(中华人民共和国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE 4, 2
+#pragma code_page(936)
+#include "res\QH.rc2"  // 非 Microsoft Visual C++ 编辑的资源
+#include "l.CHS\afxres.rc"      // 标准组件
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
