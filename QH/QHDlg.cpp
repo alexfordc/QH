@@ -198,7 +198,7 @@ BOOL CQHDlg::OnInitDialog()
 	mCListCtrlTraderRecord.InsertColumn(10,_T("报单提交状态"),LVCFMT_LEFT, 70,-1);
 	mCListCtrlTraderRecord.InsertColumn(11,_T("报单状态"),LVCFMT_LEFT, 70,-1);
 	mCListCtrlTraderRecord.InsertColumn(12,_T("报单类型"),LVCFMT_LEFT, 70,-1);
-	//mCListCtrlTraderRecord.InsertColumn(9,_T("成交价格"),LVCFMT_LEFT, 70,-1);
+	mCListCtrlTraderRecord.InsertColumn(13,_T("买卖"),LVCFMT_LEFT, 70,-1);
 
 	mCComboBoxYunSuan.AddString("-");
 	mCComboBoxYunSuan.AddString("+");
@@ -229,11 +229,11 @@ BOOL CQHDlg::OnInitDialog()
 
 	mCComboBoxKP1.AddString("开");
 	mCComboBoxKP1.AddString("平");
-	mCComboBoxKP1.SetCurSel(0);
+	mCComboBoxKP1.SetCurSel(1);
 
 	mCComboBoxKP2.AddString("开");
 	mCComboBoxKP2.AddString("平");
-	mCComboBoxKP2.SetCurSel(0);
+	mCComboBoxKP2.SetCurSel(1);
 
 	mCComboBoxNum1.AddString("1");
 	mCComboBoxNum1.AddString("2");
@@ -571,11 +571,13 @@ void CQHDlg::CbnSelchangeCombo1TraderMm()
 			{
 				sprintf_s(buf,"%.2lf", theApp.mDepthMarketDataField[i].AskPrice1);
 				mCStaticTraderJiaGe1.SetWindowText((LPCTSTR)buf);
+				mCComboBoxKP1.SetCurSel(0);
 			}
 			else if(mCComboBoxMM1trader.GetCurSel()==1)
 			{
 				sprintf_s(buf,"%.2lf", theApp.mDepthMarketDataField[i].BidPrice1);
 				mCStaticTraderJiaGe1.SetWindowText((LPCTSTR)buf);
+				mCComboBoxKP1.SetCurSel(1);
 			}
 			break;
 		}
@@ -599,11 +601,13 @@ void CQHDlg::CbnSelchangeCombo2TraderMm()
 			{
 				sprintf_s(buf,"%.2lf", theApp.mDepthMarketDataField[i].AskPrice1);
 				mCStaticTraderJiaGe2.SetWindowText((LPCTSTR)buf);
+				mCComboBoxKP2.SetCurSel(0);
 			}
 			else if(mCComboBoxMM2trader.GetCurSel()==1)
 			{
 				sprintf_s(buf,"%.2lf", theApp.mDepthMarketDataField[i].BidPrice1);
 				mCStaticTraderJiaGe2.SetWindowText((LPCTSTR)buf);
+				mCComboBoxKP2.SetCurSel(1);
 			}
 			break;
 		}
@@ -797,6 +801,11 @@ void CQHDlg::RtnOrder(CThostFtdcOrderField *pOrder)
 		mCListCtrlTraderRecord.SetItemText(nRow, 12,"条件单" );//设置数据
 	else if(pOrder->OrderType == THOST_FTDC_ORDT_Swap)
 		mCListCtrlTraderRecord.SetItemText(nRow, 12,"互换单" );//设置数据
+
+	if(pOrder->Direction ==THOST_FTDC_D_Buy)
+		mCListCtrlTraderRecord.SetItemText(nRow, 13,"买" );//设置数据
+	else if(pOrder->Direction ==THOST_FTDC_D_Sell)
+		mCListCtrlTraderRecord.SetItemText(nRow, 13,"卖" );//设置数据
 
 }
 void CQHDlg::OnBnClickedButtonCancel()
