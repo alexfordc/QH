@@ -98,6 +98,8 @@ void CQHDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_STATIC_MONEY, mCStaticMoney);
 	DDX_Control(pDX, IDC_BUTTON_UPDATE, mCButtonUpdate);
 	DDX_Control(pDX, IDC_LIST_CJ, mCListCtrlCJ);
+	DDX_Control(pDX, IDC_BUTTON_GO1, mCButtonGo1);
+	DDX_Control(pDX, IDC_BUTTON_GO3, mCButtonGo3);
 }
 
 BEGIN_MESSAGE_MAP(CQHDlg, CDialog)
@@ -119,6 +121,8 @@ BEGIN_MESSAGE_MAP(CQHDlg, CDialog)
 	ON_EN_SETFOCUS(IDC_EDIT_TIAOJIAN_VALUE, &CQHDlg::OnEnSetfocusEditTiaojianValue)
 	ON_CBN_SETFOCUS(IDC_COMBO_QH_1, &CQHDlg::OnCbnSetfocusComboQh1)
 	ON_BN_CLICKED(IDC_BUTTON_UPDATE, &CQHDlg::OnBnClickedButtonUpdate)
+	ON_BN_CLICKED(IDC_BUTTON_GO1, &CQHDlg::OnBnClickedButtonGo1)
+	ON_BN_CLICKED(IDC_BUTTON_GO3, &CQHDlg::OnBnClickedButtonGo3)
 END_MESSAGE_MAP()
 
 
@@ -657,6 +661,11 @@ void CQHDlg::OnBnClickedButtonGo()
 }
 void CQHDlg::GoTrader()
 {
+	GoTrader1();
+	GoTrader2();
+}
+void CQHDlg::GoTrader1()
+{
 	TThostFtdcInstrumentIDType Instrument_ID;
 	TThostFtdcDirectionType Direction;
 	TThostFtdcOffsetFlagType MarketState;
@@ -684,7 +693,16 @@ void CQHDlg::GoTrader()
 	vol = atoi(buf);
 
 	pUserSpi->ReqOrderInsert(Instrument_ID,Direction,MarketState,price,vol);
+}
+void CQHDlg::GoTrader2()
+{
 	////////////下第二个单
+	TThostFtdcInstrumentIDType Instrument_ID;
+	TThostFtdcDirectionType Direction;
+	TThostFtdcOffsetFlagType MarketState;
+	TThostFtdcPriceType price;
+	int vol;
+	char buf[20];
 
 	mCComboBoxTraderQH2.GetLBText(mCComboBoxTraderQH2.GetCurSel(),Instrument_ID);
 
@@ -895,4 +913,17 @@ void CQHDlg::OnBnClickedButtonUpdate()
 	pUserSpi->ReqQryTradingAccount();
 
 
+}
+
+void CQHDlg::OnBnClickedButtonGo1()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	GoTrader1();
+	
+}
+
+void CQHDlg::OnBnClickedButtonGo3()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	GoTrader2();
 }

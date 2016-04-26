@@ -19,7 +19,7 @@ public:
 	void UpdateHangQinList(int i);
 	void UpdateChiChangList(CThostFtdcInvestorPositionField *pInvestorPosition);
 	void ClearChiChangItem();
-	void EnableTrader(){mCButtonIsAutoGo.EnableWindow(true);mCButtonTraderCancel.EnableWindow(true);mCButtonTraderGo.EnableWindow(true);};
+	void EnableTrader(){mCButtonIsAutoGo.EnableWindow(true);mCButtonTraderCancel.EnableWindow(true);mCButtonTraderGo.EnableWindow(true);mCButtonGo1.EnableWindow(true);mCButtonGo3.EnableWindow(true);};
 	void EnableHangQin(){mCButtonAddHeYue.EnableWindow(true);};
 	void SetMoney(char* str);
 protected:
@@ -82,6 +82,8 @@ public:
 	CStatic mCStaticTraderJiaGe1;
 	CStatic mCStaticTraderJiaGe2;
 	void GoTrader();
+	void GoTrader1();
+	void GoTrader2();
 	void RtnOrder(CThostFtdcOrderField *pOrder);
 	afx_msg void OnBnClickedButtonCancel();
 	CButton mCButtonIsAutoGo;
@@ -96,4 +98,8 @@ public:
 	CListCtrl mCListCtrlCJ;
 	afx_msg void OnBnClickedButtonUpdate();
 	void RtnTrader(CThostFtdcTradeField *pTrade);
+	CButton mCButtonGo1;
+	CButton mCButtonGo3;
+	afx_msg void OnBnClickedButtonGo1();
+	afx_msg void OnBnClickedButtonGo3();
 };
