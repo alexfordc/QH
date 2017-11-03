@@ -100,6 +100,7 @@ void CQHDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_LIST_CJ, mCListCtrlCJ);
 	DDX_Control(pDX, IDC_BUTTON_GO1, mCButtonGo1);
 	DDX_Control(pDX, IDC_BUTTON_GO3, mCButtonGo3);
+	DDX_Control(pDX, IDC_CHECK_CLOCK, mCButtonClock);
 }
 
 BEGIN_MESSAGE_MAP(CQHDlg, CDialog)
@@ -123,6 +124,7 @@ BEGIN_MESSAGE_MAP(CQHDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_UPDATE, &CQHDlg::OnBnClickedButtonUpdate)
 	ON_BN_CLICKED(IDC_BUTTON_GO1, &CQHDlg::OnBnClickedButtonGo1)
 	ON_BN_CLICKED(IDC_BUTTON_GO3, &CQHDlg::OnBnClickedButtonGo3)
+	ON_BN_CLICKED(IDC_CHECK_CLOCK, &CQHDlg::OnBnClickedCheckClock)
 END_MESSAGE_MAP()
 
 
@@ -926,4 +928,24 @@ void CQHDlg::OnBnClickedButtonGo3()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	GoTrader2();
+}
+
+void CQHDlg::OnBnClickedCheckClock()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	// TODO: 在此添加控件通知处理程序代码
+	if(mCButtonIsAutoGo.GetCheck()==1)
+		return;
+	if (mCButtonClock.GetCheck()==0)
+	{
+		SetEnGUI(true);
+		EnableTrader(true);
+		mCButtonClock.EnableWindow(true);
+	}
+	if (mCButtonClock.GetCheck()==1)
+	{
+		SetEnGUI(false);
+		EnableTrader(false);
+		mCButtonClock.EnableWindow(true);
+	}
 }

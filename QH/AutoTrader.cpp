@@ -48,10 +48,13 @@ char  FRONT_ADDR_3B[] = "tcp://asp-sim2-md1.financial-trading-platform.com:26213
 char  Trade[] = "tcp://180.168.146.187:10000";
 char  Market[] = "tcp://180.168.146.187:10010";
 
-//TThostFtdcBrokerIDType	BROKER_ID = "7090";								// 实盘：经纪公司代码 国泰君安=7090
-TThostFtdcBrokerIDType	BROKER_ID = "9999";
-TThostFtdcInvestorIDType INVESTOR_ID = "054399";						// 实盘：投资者代码
+TThostFtdcBrokerIDType	BROKER_ID = "7090";								// 实盘：经纪公司代码 国泰君安=7090
+//TThostFtdcBrokerIDType	BROKER_ID = "1350";
+//TThostFtdcBrokerIDType	BROKER_ID = "9999";
+TThostFtdcInvestorIDType INVESTOR_ID = "";						// 实盘：投资者代码
+//TThostFtdcInvestorIDType INVESTOR_ID = "31800001";
 TThostFtdcPasswordType  PASSWORD = "";							// 实盘：用户密码
+//TThostFtdcPasswordType  PASSWORD = "888888";
 //TThostFtdcBrokerIDType	BROKER_ID = "2030";							// 经纪公司代码:仿真
 //TThostFtdcInvestorIDType INVESTOR_ID = "00092";						// 投资者代码:仿真
 //TThostFtdcPasswordType  PASSWORD = "888888";							// 用户密码:仿真
@@ -135,7 +138,7 @@ void CTP(void)
 	pUserApi->RegisterSpi((CThostFtdcTraderSpi*)pUserSpi);			// 注册事件类
 	pUserApi->SubscribePublicTopic(THOST_TERT_RESTART);				// 注册公有流
 	pUserApi->SubscribePrivateTopic(THOST_TERT_RESTART);			// 注册私有流
-	pUserApi->RegisterFront(Trade);							// connect
+	pUserApi->RegisterFront(FRONT_ADDR_1A);							// connect
 
 	pUserApi->Init();
 	cerr << "--->>> " << "Initialing UserApi" << endl;
@@ -144,8 +147,8 @@ void CTP(void)
 	pMdApi = CThostFtdcMdApi::CreateFtdcMdApi("./thostmduserapi.dll");					// 创建MdApi//"./thostmduserapi.dll"
 	pMdSpi = new CMdSpi();
 	pMdApi->RegisterSpi(pMdSpi);									// 注册事件类
-	pMdApi->RegisterFront(Market);							// connect		优先行情地址
-	pMdApi->RegisterFront(Market);							// connect		备用行情地址，1B断开，自动连接2B地址
+	pMdApi->RegisterFront(FRONT_ADDR_1B);							// connect		优先行情地址
+	pMdApi->RegisterFront(FRONT_ADDR_2B);							// connect		备用行情地址，1B断开，自动连接2B地址
 
 	pMdApi->Init();
 	cerr << "--->>> " << "Initialing MdApi" << endl;

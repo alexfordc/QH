@@ -192,7 +192,7 @@ void CTraderSpi::ReqQryInvestorPosition()
 void CTraderSpi::OnRspQryInvestorPosition(CThostFtdcInvestorPositionField *pInvestorPosition, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 {
 	cerr << "--->>> " << __FUNCTION__ << endl;
-	if ( !IsErrorRspInfo(pRspInfo))
+	if ( pRspInfo && !IsErrorRspInfo(pRspInfo))
 	{
 		if(pInvestorPosition->Position>0)
 			theApp.OnRspQryInvestorPosition(pInvestorPosition);

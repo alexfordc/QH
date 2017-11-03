@@ -23,7 +23,7 @@ public:
 	CQHApp();
 
 	void EnableGUI(){mdlg->EnableHangQin();};
-	void EnableTrader(){mdlg->EnableTrader();};
+	void EnableTrader(){mdlg->EnableTrader(true);};
 	void SetMoney(char* c){mdlg->SetMoney(c); };
 	void ClearChiChangItem(){mdlg->ClearChiChangItem();};
 	void RtnTrader(CThostFtdcTradeField *pTrade){mdlg->RtnTrader(pTrade);};
